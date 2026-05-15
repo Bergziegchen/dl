@@ -1,0 +1,236 @@
+@import url("stylefornavbar.css");
+@import url("styleforentry.css");
+@import url("styleforshowcards.css");
+@import url("");
+@import url("styleforabout.css");
+@import url("styleforfooter.css");
+@import url("styleforwave.css");
+@import url("styleforprodukte.css");
+
+
+
+:root{
+
+       
+
+    
+
+/* Entry (Hero Sektion) */
+
+
+ /* Brand Colors */
+    --accent: #13a64b;
+   
+
+    --accent-glow: rgba(19, 166, 75, 0.35);
+    
+    /* Neutrals */
+    --white: #ffffff;
+    --off-white: #fafbfc;
+    --gray-50: #f8f9fa;
+    --gray-100: #f1f3f4;
+    --gray-200: #e8eaed;
+    --gray-300: #dadce0;
+    --gray-400: #9aa0a6;
+    --gray-500: #5f6368;
+    --gray-600: #3c4043;
+    --gray-700: #202124;
+    --gray-800: #1a1a1a;
+    --gray-900: #0d0d0d;
+
+    --dark-green: #0a3d1e; 
+    
+    /* Typography */
+    --font-display: 'Space Grotesk', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    
+    /* Navbar */
+ --font-nav: 'Inter', -apple-system, system-ui, sans-serif;
+
+
+ /* for about */
+    --font-main: 'Inter', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+
+
+ /* footer */
+    --n-font-display: 'Space Grotesk', sans-serif;
+    --n-font-mono: 'Space Mono', monospace;
+
+
+
+
+
+
+
+    /* Easings */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,0.1);
+    --shadow-xl: 0 25px 80px rgba(0,0,0,0.15);
+    --shadow-glow: 0 0 60px var(--accent-glow);
+
+
+    /* --- ANIMATION --- */
+    --cb-main: cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-mid: 0.5s var(--cb-main);
+    --transition-slow: 0.9s var(--cb-main);
+
+
+
+
+}
+
+
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+  overflow-y: scroll;
+  scrollbar-gutter: stable; 
+}
+section {
+    font-family: 'Inter', sans-serif;
+    background: #0f172a;
+    color: white;
+    overflow-x: hidden;
+}
+
+
+
+
+
+
+/* Der AR-Button Style */
+.ar-button {
+    background-color: var(--dl-accent);
+    border-radius: 8px;
+    border: none;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    padding: 10px 20px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+.breadcrumb-nav {
+    width: 100%;
+    background-color: #f8f8f8; 
+    border-bottom: 1px solid #eeeeee;
+    padding: 12px 0;
+    margin-bottom: 2rem;
+    
+}
+
+.breadcrumb-container {
+    padding: 0 var(--side-padding); 
+}
+
+.breadcrumb-list {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 0;
+}
+
+.breadcrumb-item {
+    font-size: 0.8rem;
+    font-family: var(--font-nav);
+    color: #888;
+}
+
+/* Der Trenner (Slash) */
+.breadcrumb-item + .breadcrumb-item::before {
+    content: "/";
+    padding: 0 15px;
+    color: #ccc;
+    font-weight: 300;
+}
+
+.breadcrumb-item a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.breadcrumb-item a:hover {
+    color: var(--clr-primary); 
+}
+
+/* Die aktuelle Position */
+.breadcrumb-item.active {
+    color: var(--clr-black);
+    font-weight: 700;
+}
+
+
+.breadcrumb-list .breadcrumb-item:last-child,
+.breadcrumb-list .breadcrumb-item:last-child a {
+    color: var(--accent);
+    font-weight: 700;   
+    pointer-events: none; 
+}
+@media (max-width: 768px) {
+    .breadcrumb-list {
+        overflow-x: auto;         
+        white-space: nowrap;      
+        padding-bottom: 8px;     
+        -webkit-overflow-scrolling: touch; 
+        display: block;           
+    }
+
+    .breadcrumb-item {
+        display: inline-block;   
+        font-size: 0.75rem;      
+    }
+    
+    
+    .breadcrumb-list::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+
+
+
+/* Cookie Banner fixieren */
+#termsfeed-com---nb {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 999999 !important; /* Sicherstellen, dass es über allem liegt */
+    margin: 0 !important;
+    background-color: #1a1a1a !important; 
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.3) !important;
+}
+
+/* Verhindern, dass das Script Platz im Layout reserviert */
+.termsfeed-com---nb-shown {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}

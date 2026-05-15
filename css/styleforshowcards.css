@@ -1,0 +1,310 @@
+/* ==========================================================================
+   Projektübersicht
+  ========================================================================== */
+
+#Projektübersicht {
+    background: white;
+    padding: 100px 5%;
+    color: #f8fafc;
+    /* Nutzt die Body-Variable für allgemeine Vererbung */
+    font-family: var(--font-body);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-header h2 {
+    
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    color: var(--dark-green);
+    font-weight: 700;
+}
+
+.section-sub {
+    color: var(--accent);
+    
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+/* --- GRID LAYOUT --- */
+.material-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* --- CARD STYLING --- */
+.material-card {
+    position: relative;
+    height: 500px;
+    background: #081f18;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 5px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.material-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(74, 222, 128, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.card-image {
+    height: 60%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.8s ease;
+    filter: grayscale(30%);
+}
+
+.material-card:hover .card-image {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+}
+
+/* Bild-Zuweisungen */
+.card-image1 { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('public/img/head01.jpg'); }
+.card-image2 { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('img/rohrschalldaempfer.jpg'); }
+.card-image3 { background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('img/schallgutachten.jpg'); }
+/* ... weitere Bilder nach Bedarf ... */
+
+.card-content {
+    padding: 30px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(to top, #081f18 80%, transparent);
+}
+
+.category {
+  
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.material-card h3 {
+  
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: #f8fafc;
+    margin-bottom: 15px;
+}
+
+.card-desc {
+    font-size: 1rem;
+    color: #94a3b8;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    opacity: 0.8;
+  
+    font-family: var(--font-body);
+}
+
+/* --- FOOTER & TECH SPECS --- */
+.card-footer {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;            
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    margin-top: 10px;
+    flex-wrap: nowrap; 
+    gap: 20px; 
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.material-card:hover .card-footer {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.technical-specs {
+    display: flex;
+    gap: 25px;
+    min-width: 0;
+}
+
+.spec {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.spec span { 
+    font-family: var(--font-mono);
+    font-size: 0.65rem; 
+    text-transform: uppercase; 
+    color: #64748b; 
+}
+
+.spec strong { 
+    font-family: var(--font-display);
+    font-size: 1rem; 
+    color: var(--accent);
+    white-space: nowrap; 
+}
+
+/* --- ACTION BUTTON --- */
+.material-card .action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 10px 20px;
+    
+    font-family: var(--font-mono);
+    font-weight: bold;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    text-decoration: none;
+}
+
+.material-card .action-btn:hover {
+    background: var(--accent);
+    color: #081f18;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(74, 222, 128, 0.2);
+}
+
+.material-card .action-btn::after {
+    content: '→';
+    transition: transform 0.3s ease;
+}
+
+.material-card .action-btn:hover::after {
+    transform: translateX(4px);
+}
+
+/* --- RESPONSIVE FIXES --- */
+@media (max-width: 767px) {
+    .card-footer {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .material-card {
+        height: auto;
+        min-height: 500px;
+    }
+
+    .technical-specs {
+        width: 100%;
+        gap: 30px;
+    }
+}
+
+/* --- ACCESSIBILITY & FOCUS --- */
+.material-card:focus-within {
+    outline: none;
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.material-card:focus-within .card-footer {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.material-card .action-btn:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+}
+
+
+
+/* ==========================================================================
+    Layout für Mobile
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    /* 1. Allgemeine Button-Anpassung */
+    .peak-link, 
+    .cta-button, 
+    .action-btn, 
+    .secondary-btn {
+        width: 100%;           
+        display: flex;        
+        justify-content: center;
+        align-items: center;
+        padding: 16px 24px !important; 
+        font-size: 14px !important;  
+        letter-spacing: 1.5px !important;
+        box-sizing: border-box;
+    }
+
+   
+    .action-zone {
+        flex-direction: column;
+        width: 100%;
+        gap: 15px !important;
+    }
+
+  
+    .material-card .action-btn {
+        margin-top: 10px;       
+    }
+
+    .secondary-btn {
+        border-width: 1px;      
+    }
+
+   
+    .peak-link::after, 
+    .cta-button::after, 
+    .action-btn::after {
+        margin-left: 10px;
+    }
+}
+
+
+@media (max-width: 380px) {
+    .peak-link, .cta-button {
+        font-size: 12px !important;
+        padding: 14px 20px !important;
+    }
+}
+
+
+@media (hover: none) {
+    .peak-link:hover, 
+    .cta-button:hover, 
+    .action-btn:hover {
+        transform: none !important;
+        background: var(--gray-900); 
+    }
+    
+    
+    .material-card .action-btn:active {
+        background: var(--accent);
+        color: #081f18;
+    }
+}

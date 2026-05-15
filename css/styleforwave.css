@@ -1,0 +1,150 @@
+
+
+:root{
+
+       
+
+
+    /* for wave */
+    --bg-dark: #040d0b;
+    --mint-active: #4ade80;
+    --text-white: #f8fafc;
+    --font-main: 'Inter', sans-serif;
+    --font-tech: 'Space Mono', monospace;
+    /* ---------------------------------- */
+
+
+
+
+}
+
+/* Parent Container */
+.wave-hero {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    background: radial-gradient(circle at center, var(--dark-green) 0%, var(--bg-dark) 100%);
+    overflow: hidden;
+    margin-top: 5rem;
+}
+
+/* Das Canvas füllt den Hintergrund */
+#hero-wave-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* Absolute Zentrierung des Contents */
+.hero-center-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 90%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* --- Typografie & Styling (Verkleinert) --- */
+
+.brand-tag {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 1.5rem; 
+}
+
+.tag-line {
+    width: 30px; 
+    height: 1px;
+    background: var(--accent);
+}
+
+.tag-text {
+    font-family: var(--font-tech);
+    font-size: 0.7rem; 
+    letter-spacing: 0.3em;
+    color: var(--accent);
+}
+
+.wave-hero h2 {
+    font-family: var(--font-main);
+    line-height: 1.0; 
+    margin-bottom: 1.5rem; 
+   
+}
+
+.wave-hero h2 .h-top {
+    display: block;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    color: var(--text-white);
+    
+}
+
+.wave-hero h2 .h-bottom {
+    display: block;
+    font-size: clamp(2.5rem, 8vw, 5rem); 
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    color: var(--text-white);
+   
+}
+
+.wave-hero h2 .dot { color: var(--accent); }
+
+.description-container {
+    max-width: 500px;
+    margin-bottom: 2rem;
+}
+
+.description {
+    font-family: var(--font-main);
+    font-size: 1.3rem; 
+    line-height: 1.6;
+    color: #94a3b8;
+}
+
+/* Button kompakter */
+.wave-hero .btn-main {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 1rem 2.2rem; 
+    text-decoration: none;
+    font-family: var(--font-tech);
+    font-weight: bold;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.wave-hero .btn-main:hover {
+    background: var(--accent);
+    color: var(--bg-dark);
+    transform: translateY(-5px);
+}
+
+@media (max-width: 1024px){
+    .description {
+    font-size: 1rem;
+}
+
+.wave-hero h2 .h-bottom {
+   
+    font-size: clamp(2rem, 5vw, 6rem); 
+   
+   
+}
+}
